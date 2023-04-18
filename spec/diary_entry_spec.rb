@@ -2,23 +2,21 @@
 require "diary_entry"
 
 RSpec.describe DiaryEntry do
-  it "Returns the title as a string" do
+  it "Returns the title as a string and contents as a string" do
     diary_entry = DiaryEntry.new("my_title", "my_contents")
     expect(diary_entry.title).to eq("my_title")
     expect(diary_entry.contents).to eq("my_contents")
   end
 
   describe "#count_words" do
-    context "Returns the contents as a string" do
-      it "return words count" do
-        diary_entry = DiaryEntry.new("my_title", "one")
-        expect(diary_entry.count_words).to eq(1)
-      end
+    it "return words count" do
+      diary_entry = DiaryEntry.new("my_title", "one")
+      expect(diary_entry.count_words).to eq(1)
+    end
 
-      it "return 0" do
-        diary_entry = DiaryEntry.new("my_title", "")
-        expect(diary_entry.count_words).to eq(0)
-      end
+    it "return 0" do
+      diary_entry = DiaryEntry.new("my_title", "")
+      expect(diary_entry.count_words).to eq(0)
     end
   end
 
